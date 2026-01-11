@@ -1,4 +1,3 @@
-/* Base body */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #111;
@@ -6,9 +5,9 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px 20px;
+  transition: background 0.3s;
 }
 
-/* Main container */
 .container {
   max-width: 700px;
   width: 100%;
@@ -16,9 +15,14 @@ body {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Headings */
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+
 h1 {
   text-align: center;
   margin-bottom: 5px;
@@ -31,7 +35,6 @@ p {
   margin-bottom: 20px;
 }
 
-/* Textareas */
 textarea {
   width: 100%;
   min-height: 120px;
@@ -43,9 +46,14 @@ textarea {
   color: #eee;
   font-size: 16px;
   resize: vertical;
+  transition: all 0.2s;
 }
 
-/* Controls */
+textarea:focus {
+  border-color: #555;
+  background: #2a2a2a;
+}
+
 .controls {
   display: flex;
   justify-content: space-between;
@@ -69,7 +77,6 @@ select {
   color: #eee;
 }
 
-/* Buttons */
 button {
   background-color: #eee;
   color: #111;
@@ -84,15 +91,23 @@ button {
 
 button:hover {
   background-color: #ccc;
+  transform: translateY(-2px);
 }
 
-/* Output heading */
 h2 {
   margin-top: 20px;
   color: #fff;
 }
 
-/* Follow button */
+#outputText {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#outputText.visible {
+  opacity: 1;
+}
+
 .follow-btn {
   position: fixed;
   bottom: 20px;
